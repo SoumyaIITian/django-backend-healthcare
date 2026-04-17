@@ -6,7 +6,8 @@ class Doctor(models.Model):
     specialization = models.CharField(max_length=255)
     contact_number = models.CharField(max_length=20, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-
+    class Meta:
+        unique_together = ('name', 'specialization')
     def __str__(self):
         return f"Dr. {self.name} - {self.specialization}"
 
